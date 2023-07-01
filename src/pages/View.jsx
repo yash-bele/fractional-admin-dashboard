@@ -6,6 +6,7 @@ import { MdLocationPin } from "react-icons/md";
 import Loading from "../components/Loading";
 import facilityIcon from "../assets/towel-rack.png";
 import overviewIcon from "../assets/overview_icon.svg";
+import Details from "../components/Details";
 
 const View = () => {
   const { id } = useParams();
@@ -34,17 +35,11 @@ const View = () => {
     getData();
   }, []);
 
-  const handleSubmit = async (currentStatus, updateStatus) => {
-    let datax;
-    if (updateStatus) {
-      datax = { ...data, isVerified: true };
-    } else {
-      datax = { ...data, isVerified: false };
-    }
-    await axios.patch(
-      `https://fractional-assets.vercel.app/villa-resort-apartment-details/${id}`,
-      datax
-    );
+  const handleVerify = async (id) => {
+    await axios
+      .patch(`https://fractional-assets.vercel.app/verify-success/${id}`)
+      .then(() => getData())
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -54,92 +49,15 @@ const View = () => {
       ) : (
         <div className="villa-details-container text-gray-300">
           <section className="villa-details-r1">
-            <h4>
+            <h4 className="flex items-center gap-2">
               <span>
                 <MdLocationPin />
               </span>
               {data.landmark}, {data.city}, {data.state}
             </h4>
-            <div className="villa-details-table">
-              <section>
-                <p>Seller</p>
-                <p className="villa-details-table-value">Mane</p>
-              </section>
-              <div className="villa-details-table-dummy-border"></div>
-              <section>
-                <p>Property Age</p>
-                <p className="villa-details-table-value">{data.propertyAge}</p>
-              </section>
-              <p className="villa-details-table-dummy-border"></p>
-              <section>
-                <p>Property Area</p>
-                <p className="villa-details-table-value">{data.area} sq ft</p>
-              </section>
-              <p className="villa-details-table-dummy-border"></p>
-              <section>
-                <p>Total Shares</p>
-                <p className="villa-details-table-value">{data.totalShares}</p>
-              </section>
-              <p className="villa-details-table-dummy-border"></p>
-              <section>
-                <p>Available Shares</p>
-                <p className="villa-details-table-value">
-                  {data.availableShares}
-                </p>
-              </section>
-              <p className="villa-details-table-dummy-border"></p>
-              <section>
-                <p>Price Per Share</p>
-                <p className="villa-details-table-value">
-                  {data.perSharePrice}
-                </p>
-              </section>
-            </div>
-
-            {/* details table in mobile view */}
-            <div className="villa-details-mobile-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Seller</th>
-                    <th scope="col">Property Age</th>
-                    <th scope="col">Property Area</th>
-                    <th scope="col">Total Shares</th>
-                    <th scope="col">Available Shares</th>
-                    <th scope="col">Price Per Share</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-label="Seller">Mane</td>
-                    <td data-label="Property Age">
-                      {data.propertyAge ? data.propertyAge : <p>not given</p>}
-                    </td>
-                    <td data-label="Property Area">
-                      {data.propertyArea ? data.propertyArea : <p>not given</p>}
-                    </td>
-                    <td data-label="Total Shares">{data.totalShares}</td>
-                    <td data-label="Available Shares">
-                      {data.availableShares ? (
-                        data.availableShares
-                      ) : (
-                        <p>not given</p>
-                      )}
-                    </td>
-                    <td data-label="Price Per Share">
-                      {data.perSharePrice ? (
-                        data.perSharePrice
-                      ) : (
-                        <p>not given</p>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* details table in mobile view ends */}
+            <Details data={data} />
           </section>
+
           <section className="villa-details-r2">
             <div className="villa-corousel-current-img">
               <img src={currentImg} alt="" />
@@ -160,9 +78,10 @@ const View = () => {
               })}
             </div>
           </section>
+
           <section className="villa-details-r3">
             <div className="overview">
-              <h4>
+              <h4 className="flex items-center gap-2 mb-3">
                 <span>
                   <img src={overviewIcon} alt="overview-img-icon" />
                 </span>
@@ -188,7 +107,7 @@ const View = () => {
               )}
             </div>
             <div className="facility-outer-wrap">
-              <h4>
+              <h4 className="flex items-center gap-2 mb-3">
                 <span>
                   <img src={facilityIcon} alt="overview-img-icon" />
                 </span>
@@ -197,7 +116,7 @@ const View = () => {
               <div className="facility-inner-wrap">
                 {aminityArr.map((aminity, i) => {
                   return (
-                    <section>
+                    <section className="rounded">
                       <h6>{aminity}</h6>
                     </section>
                   );
@@ -207,20 +126,16 @@ const View = () => {
             <h1 className="w-fit mx-auto mt-10 text-lg">
               {`Status - ${data.isVerified ? "Verified" : "Not Verified"}`}
             </h1>
-            <div className="flex space-x-10 justify-center mt-10">
-              <button
-                onClick={() => handleSubmit(data.isVerified, true)}
-                className="px-10 py-2 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-green-600 dark:text-white dark:border-gray-600 dark:hover:bg-green-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              >
-                Verify
-              </button>
-              <button
-                onClick={() => handleSubmit(data.isVerified, false)}
-                className="px-10 py-2 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-red-600 dark:text-white dark:border-gray-600 dark:hover:bg-red-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              >
-                Reject
-              </button>
-            </div>
+            {!data.isVerified && (
+              <div className="flex space-x-10 justify-center mt-10">
+                <button
+                  onClick={() => handleVerify(data._id)}
+                  className="px-10 py-2 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-green-600 dark:text-white dark:border-gray-600 dark:hover:bg-green-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                >
+                  Verify
+                </button>
+              </div>
+            )}
           </section>
         </div>
       )}

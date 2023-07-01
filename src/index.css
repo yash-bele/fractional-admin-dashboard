@@ -31,10 +31,8 @@ html {
 
 .villa-details-container {
     width: 80%;
-    margin: 7rem auto;
+    margin: 3rem auto;
 }
-
-.villa-details-r1 {}
 
 .villa-details-r1>h3 {
     color: rgb(6, 2, 86);
@@ -66,10 +64,9 @@ html {
 .villa-details-table section {
     width: 250px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* border-right: 1px solid black; */
 }
 
 .villa-details-table section p:first-child {
@@ -195,9 +192,8 @@ html {
 
 /* mobile view table */
 .villa-details-container .villa-details-mobile-table table {
-    border: 1px solid #ccc;
     border-collapse: collapse;
-    margin: 0;
+    margin: 0 5px;
     padding: 0;
     width: 100%;
     table-layout: fixed;
@@ -209,7 +205,6 @@ html {
 }
 
 .villa-details-container .villa-details-mobile-table table tr {
-    background-color: #f8f8f8;
     border: 1px solid #ddd;
     padding: 0.35em;
 }
@@ -231,13 +226,11 @@ html {
 @media only screen and (max-width: 680px) {
     .villa-details-container {
         width: 100%;
-        margin: 7rem auto;
+        margin: 3rem auto;
     }
 
-    .villa-details-r1 {}
-
     .villa-details-r1>h4 {
-        color: rgb(6, 2, 86);
+        color: #d1d5db;
         padding: 0.5rem 1rem;
     }
 
@@ -275,9 +268,9 @@ html {
     .villa-details-table section {
         width: 250px;
         display: flex;
+        align-items: center;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
     }
 
     .villa-details-table section p:first-child {
@@ -297,24 +290,21 @@ html {
     }
 
     .villa-details-table-dummy-border {
-        /* width: 1px; */
         height: 5rem;
         margin: 5px;
         border: 1px solid rgb(239, 238, 238);
     }
 
     .villa-details-r2 {
-        margin-top: 3rem;
         height: 80vh;
-        /* border: 1px solid black; */
         display: flex;
+        margin-top: 3rem;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .villa-corousel-current-img {
         width: 100%;
-        /* border: 1px solid red; */
     }
 
     .villa-corousel-current-img img {
@@ -399,9 +389,11 @@ html {
     }
 
     .villa-details-container .villa-details-mobile-table table tr {
-        border-bottom: 3px solid #ddd;
         display: block;
+        color: #9ca3af;
+        border-radius: 5px;
         margin-bottom: 0.625em;
+        border-bottom: 1px solid #ddd;
     }
 
     .villa-details-container .villa-details-mobile-table table td {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Table = ({ data }) => {
   return (
-    <main className="relative shadow-md h-screen font-sans">
+    <main className="absolute w-full h-full shadow-md font-sans">
       <table className="w-[90%] text-xs text-left text-gray-400 mx-auto">
         <thead className="text-sm uppercase bg-gray-700 text-gray-400 sticky top-0 font-serif">
           <tr>
@@ -37,16 +37,16 @@ const Table = ({ data }) => {
                   j % 2 === 0 ? "py-3" : "py-2.5"
                 }`}
               >
-                {i.propertyType || "None"}
+                {i.propertyType || "---"}
               </th>
               <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                {i.propertyAdType || "None"}
+                {i.propertyAdType || "---"}
               </td>
               <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                {i.postedOn || "None"}
+                {i.postedOn || "---"}
               </td>
               <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                {i.isVerified ? "Verified" : "Screening"}
+                {i.isVerified ? "Verified" : "Not Verified"}
               </td>
               <td className={`text-center ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
                 <Link

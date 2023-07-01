@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Cards = ({ data }) => {
   return (
     <main className="absolute w-full h-full overflow-y-scroll capitalize overflow-hidden">
@@ -12,35 +14,36 @@ const Cards = ({ data }) => {
                 <p className="text-sm font-semibold text-gray-400">Type</p>
                 <span className="w-10 h-px bg-slate-200 absolute mx-auto left-0 right-0"></span>
                 <p className="text-sm text-gray-400">
-                  {i.propertyType || "None"}
+                  {i.propertyType || "---"}
                 </p>
               </div>
               <div className="flex items-center justify-between px-10 w-full relative">
                 <p className="text-sm font-semibold text-gray-400">Ad Type</p>
                 <span className="w-10 h-px bg-slate-200 absolute mx-auto left-0 right-0"></span>
                 <p className="text-sm text-gray-400">
-                  {i.propertyAdType || "None"}
+                  {i.propertyAdType || "---"}
                 </p>
               </div>
               <div className="flex items-center justify-between px-10 w-full relative">
                 <p className="text-sm font-semibold text-gray-400">Posted On</p>
                 <span className="w-10 h-px bg-slate-200 absolute mx-auto left-0 right-0"></span>
-                <p className="text-sm text-gray-400">{i.postedOn || "None"}</p>
+                <p className="text-sm text-gray-400">{i.postedOn || "---"}</p>
               </div>
               <div className="flex items-center justify-between px-10 w-full relative">
                 <p className="text-sm font-semibold text-gray-400">Status</p>
                 <span className="w-10 h-px bg-slate-200 absolute mx-auto left-0 right-0"></span>
                 <p className="text-sm text-gray-400">
-                  {i.isVerified ? "Verified" : "Screening"}
+                  {i.isVerified ? "Verified" : "Not Verified"}
                 </p>
               </div>
               <div className="flex space-x-3">
-                <a
+                <Link
+                  to={`/home/view/${i._id}`}
                   href="#"
                   className="px-4 py-1 text-sm font-medium text-center border rounded-md focus:ring-4 focus:outline-none bg-gray-800 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-700 focus:ring-gray-700"
                 >
                   View
-                </a>
+                </Link>
               </div>
             </div>
           </section>
