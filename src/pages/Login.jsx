@@ -5,7 +5,7 @@ const Login = () => {
   const handleSubmit = () => navigate("/home");
 
   return (
-    <section>
+    <section className="absolute w-full h-full overflow-y-scroll">
       <div class="flex flex-col items-center justify-center px-6 h-screen lg:py-0">
         <section className="w-fit text-lg text-center text-white mb-5 -mt-10 font-serif">
           <h1>FRACTIONAL ASSET</h1>
