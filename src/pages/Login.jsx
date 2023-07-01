@@ -6,7 +6,7 @@ const Login = () => {
 
   return (
       <div className="absolute w-full h-full -mt-10 flex flex-col items-center justify-center px-6 lg:py-0">
-        <section className="w-fit text-lg text-center text-white mb-5 -mt-10 font-serif">
+        <section className="w-fit text-lg text-center text-white mb-5 font-serif">
           <h1>FRACTIONAL ASSET</h1>
           <p className="text-xs">Admin Dashboard</p>
         </section>
