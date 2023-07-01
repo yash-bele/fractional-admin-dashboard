@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getVerificationData } from "../store/slice";
 
 import Table from "../components/Table";
 import Cards from "../components/Cards";

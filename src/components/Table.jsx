@@ -1,21 +1,22 @@
+import { Link } from "react-router-dom";
+
 const Table = ({ data }) => {
-  console.log(data);
   return (
     <main className="relative shadow-md h-screen font-sans">
       <table className="w-[90%] text-xs text-left text-gray-500 dark:text-gray-400 mx-auto">
         <thead className="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky top-0 font-serif">
           <tr>
-            <th scope="col" className="w-[26.666%] pl-9 py-3">
+            <th scope="col" className="w-[22.5%] pl-9 py-3">
               Type
             </th>
-            <th scope="col" className="w-[26.666%] py-3">
+            <th scope="col" className="w-[22.5%] py-3">
               Ad Type
             </th>
-            <th scope="col" className="w-[26.666%] py-3">
+            <th scope="col" className="w-[22.5%] py-3">
               Posted On
             </th>
-            <th scope="col" className="w-[10%] py-3 text-center">
-              Details
+            <th scope="col" className="w-[22.5%] py-3">
+              Status
             </th>
             <th scope="col" className="w-[10%] py-3 text-center">
               Action
@@ -25,7 +26,7 @@ const Table = ({ data }) => {
         <tbody>
           {data.map((i, j) => (
             <tr
-              key={j}
+              key={i._id}
               className={`border-b dark:border-gray-700 capitalize ${
                 j % 2 === 0
                   ? "bg-white dark:bg-gray-900"
@@ -38,29 +39,24 @@ const Table = ({ data }) => {
                   j % 2 === 0 ? "py-3" : "py-2.5"
                 }`}
               >
-                {i.propertyType}
+                {i.propertyType || "None"}
               </th>
               <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                {i.propertyAdType}
+                {i.propertyAdType || "None"}
               </td>
               <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                {i.postedOn}
+                {i.postedOn || "None"}
+              </td>
+              <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
+                {i.isVerified ? "Verified" : "Screening"}
               </td>
               <td className={`text-center ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                <a
-                  href="#"
+                <Link
+                  to={`/home/view/${i._id}`}
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   View
-                </a>
-              </td>
-              <td className={`text-center ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  View
-                </a>
+                </Link>
               </td>
             </tr>
           ))}
