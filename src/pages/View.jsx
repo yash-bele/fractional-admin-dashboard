@@ -210,13 +210,13 @@ const View = () => {
             <div className="flex space-x-10 justify-center mt-10">
               <button
                 onClick={() => handleSubmit(data.isVerified, true)}
-                className="px-10 py-3 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-green-600 dark:text-white dark:border-gray-600 dark:hover:bg-green-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                className="px-10 py-2 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-green-600 dark:text-white dark:border-gray-600 dark:hover:bg-green-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
               >
                 Verify
               </button>
               <button
                 onClick={() => handleSubmit(data.isVerified, false)}
-                className="px-10 py-3 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-red-600 dark:text-white dark:border-gray-600 dark:hover:bg-red-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                className="px-10 py-2 text-lg font-medium text-center duration-300 text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-red-600 dark:text-white dark:border-gray-600 dark:hover:bg-red-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
               >
                 Reject
               </button>
