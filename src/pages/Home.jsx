@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import { BiDotsVerticalRounded, BiLogOutCircle } from "react-icons/bi";
@@ -9,15 +10,9 @@ import Cards from "../components/Cards";
 import Loading from "../components/Loading";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [verificationData, setVerificationData] = useState([]);
-
-  const actions = [
-    { icon: <BiLogOutCircle className="text-xl" />, name: "logout" },
-    { icon: <BiLogOutCircle className="text-xl" />, name: "logout" },
-    { icon: <BiLogOutCircle className="text-xl" />, name: "logout" },
-    { icon: <BiLogOutCircle className="text-xl" />, name: "logout" },
-  ];
 
   const getVerificationData = async () => {
     await axios
@@ -32,6 +27,18 @@ const Home = () => {
   useEffect(() => {
     getVerificationData();
   }, []);
+
+  const actions = [
+    {
+      icon: (
+        <BiLogOutCircle
+          onClick={() => navigate("/")}
+          className="text-xl text-red-500"
+        />
+      ),
+      name: "Logout",
+    },
+  ];
 
   return (
     <>
@@ -48,7 +55,7 @@ const Home = () => {
         </>
       )}
       <SpeedDial
-        ariaLabel="SpeedDial basic example"
+        ariaLabel=""
         sx={{ position: "absolute", bottom: 16, right: 16 }}
         icon={<BiDotsVerticalRounded className="text-xl" />}
       >

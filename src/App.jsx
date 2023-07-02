@@ -1,8 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { store } from "./store";
-import { Provider } from "react-redux";
-
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import View from "./pages/View";
@@ -10,7 +7,6 @@ import Layout from "./pages/Layout";
 
 const App = () => {
   return (
-    // <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -20,7 +16,6 @@ const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
-    // </Provider>
   );
 };
 

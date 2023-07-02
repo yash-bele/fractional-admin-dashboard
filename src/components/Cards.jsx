@@ -33,7 +33,7 @@ const Cards = ({ data }) => {
                 <p className="text-sm font-semibold text-gray-400">Status</p>
                 <span className="w-10 h-px bg-slate-200 absolute mx-auto left-0 right-0"></span>
                 <p className="text-sm text-gray-400">
-                  {i.isVerified ? "Verified" : "Not Verified"}
+                  {i.isVerified ? "Verified" : "Unverified"}
                 </p>
               </div>
               <div className="flex space-x-3">

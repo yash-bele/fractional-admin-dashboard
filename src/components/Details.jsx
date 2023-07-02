@@ -49,16 +49,6 @@ const Details = ({ data }) => {
         {/* details table in mobile view */}
         <div className="villa-details-mobile-table bg-gray-900 text-gray-300">
           <table>
-            <thead>
-              <tr>
-                <th scope="col">Seller</th>
-                <th scope="col">Property Age</th>
-                <th scope="col">Property Area</th>
-                <th scope="col">Total Shares</th>
-                <th scope="col">Available Shares</th>
-                <th scope="col">Price Per Share</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <td data-label="Seller">
@@ -132,16 +122,6 @@ const Details = ({ data }) => {
         {/* details table in mobile view */}
         <div className="villa-details-mobile-table bg-gray-900 text-gray-300">
           <table>
-            <thead>
-              <tr>
-                <th scope="col">Seller Type</th>
-                <th scope="col">Rera Id</th>
-                <th scope="col">Property Area</th>
-                <th scope="col">Bedrooms</th>
-                <th scope="col">Bathrooms</th>
-                <th scope="col">Posted On</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <td data-label="Seller Type">

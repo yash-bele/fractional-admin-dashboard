@@ -46,7 +46,7 @@ const Table = ({ data }) => {
                 {i.postedOn || "---"}
               </td>
               <td className={`text-sm ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
-                {i.isVerified ? "Verified" : "Not Verified"}
+                {i.isVerified ? "Verified" : "Unverified"}
               </td>
               <td className={`text-center ${j % 2 === 0 ? "py-3" : "py-2.5"}`}>
                 <Link
