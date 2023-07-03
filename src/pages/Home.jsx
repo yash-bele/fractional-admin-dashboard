@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SpeedDial from "@mui/material/SpeedDial";
@@ -16,7 +16,7 @@ const Home = () => {
 
   const getVerificationData = async () => {
     await axios
-      .get(`https://fractional-assets.vercel.app/data-sent-for-verification`)
+      .get(`/data-sent-for-verification`)
       .then((data) => {
         setIsLoading(true);
         setVerificationData(data.data.list);

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios";
 import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -22,9 +22,7 @@ const View = () => {
 
   const getData = async () => {
     await axios
-      .get(
-        `https://fractional-assets.vercel.app/villa-resort-apartment-details/${id}`
-      )
+      .get(`/villa-resort-apartment-details/${id}`)
       .then((res) => {
         setIsLoading(true);
         setData(res.data.data);
@@ -41,7 +39,7 @@ const View = () => {
 
   const handleVerify = async (id) => {
     await axios
-      .patch(`https://fractional-assets.vercel.app/verify-success/${id}`)
+      .patch(`/verify-success/${id}`)
       .then(() => getData())
       .catch((error) => console.log(error));
   };
